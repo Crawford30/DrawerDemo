@@ -15,32 +15,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         drawerView.layer.cornerRadius = 10.0
-        drawerView.clipsToBounds = false
+        drawerView.clipsToBounds = false     //take the full size of the screen with the items
         
         //=========bringing it to front==
         self.view.addSubview(drawerView)
+        
+        //========to hide the drawer======
         drawerView.frame = CGRect(x: 0 , y: 0, width: 0.0 - (self.view.frame.width), height: self.view.frame.height)
         
-        
-        //       CGRect tempRect   = drawerView.frame;
-        //       tempRect.origin.x = 0.0 - tempRect.size.width;
-        //
-        //       drawerView.frame  = tempRect;
-        
-        //        let drawerView =  CGRect(
-        //        origin: CGPoint(x: 0, y: 0),
-        //        size: CGSize(width: 100, height: 100))
-        //        let firstView = UIView(frame:drawerView)
-        //        firstView.backgroundColor = UIColor.blue
-        //        view.addSubview(firstView)
+
     }
-    
-    
     
     //======menu button===
     @IBAction func menu_button(_ sender: UIBarButtonItem) {
-        // let new_frame_size = drawerView.frame.origin.x < 0.0
-        
+       //===========when the drawer is ro the left===== ie negative
         if (drawerView.frame.origin.x < 0.0) {
             UIView.animate(withDuration: 0.25) {
                 self.drawerView.frame = CGRect(x:self.drawerView.frame.origin.x , y: 0, width: self.view.frame.width, height: self.view.frame.height)
