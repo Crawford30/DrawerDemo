@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         drawerView.clipsToBounds = false     //take the full size of the screen with the items
         
         //=========bringing it to front==
+       
         self.view.addSubview(drawerView)
         
         //========to hide the drawer======
@@ -31,12 +32,12 @@ class ViewController: UIViewController {
        //===========when the drawer is ro the left===== ie negative
         if (drawerView.frame.origin.x < 0.0) {
             UIView.animate(withDuration: 0.25) {
-                self.drawerView.frame = CGRect(x:self.drawerView.frame.origin.x , y: 0, width: self.view.frame.width, height: self.view.frame.height)
+                self.drawerView.frame = CGRect(x:self.drawerView.frame.origin.x , y: 0, width: self.drawerView.frame.width, height: self.drawerView.frame.height)
             }
             
         } else {
             UIView.animate(withDuration: 0.25) {
-                self.drawerView.frame = CGRect(x: 0.0 - (self.view.frame.width)  , y: 0, width: 0, height: self.view.frame.height)
+                self.drawerView.frame = CGRect(x: 0.0 - (self.drawerView.frame.width)  , y: 0, width: 0, height: self.drawerView.frame.height)
                 //self.view.frame.height
                 //width: 0.0 - (self.view.frame.width)
                 
